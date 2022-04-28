@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <fstream>
 using namespace std;
 
 class Water_pressure
@@ -43,6 +44,8 @@ string residents;
   
   };
 
+void printZones(Zone);
+
 int main() 
 {
   int choice;
@@ -79,6 +82,9 @@ int main()
   cout << "Zone 1, 2, 3, or 4?" << endl;
   cout << "Press the corresponding number for your zone." << endl;
   cin >> choice;
+    fstream outData ("main.txt", ios::app);
+	outData << choice << endl;
+    
   if (choice == 1)
   {
     do{
@@ -88,14 +94,23 @@ int main()
     cout << "History:"<< results[0].history << endl << endl;
     cout << "The water level is " << liquid.findWaterlevel() << endl;
     cout << "The pipes are at " << integrity.findDamage() << endl;
+
+       outData << "Names:"<<results[0].names << endl;
+    outData << "Location:"<<results[0].location << endl;
+    outData << "Residents: "<<results[0].residents << endl;
+    outData << "History:"<< results[0].history << endl << endl;
+    outData << "The water level is " << liquid.findWaterlevel() << endl;
+    outData << "The pipes are at " << integrity.findDamage() << endl;
     if (liquid.findWaterlevel() && integrity.findDamage() <= 5)
     {
       cout << "Time to stock up on water bottles and boil the water until further notice!" << endl;
+      outData << "Time to stock up on water bottles and boil the water until further notice!" << endl;
       
     }
     else
     {
       cout << "Normal as it should be!" << endl;
+      outData << "Normal as it should be!" << endl;
     }
       cout << "Would you like to run the program again? \n Press y to run program again or any key to end.";
 		cin >> response;
@@ -110,13 +125,22 @@ int main()
     cout << "History: "<< results[1].history << endl<<endl;
      cout << "The water level is " << liquid.findWaterlevel() << endl;
      cout << "The pipes are at " << integrity.findDamage() << endl;
+
+       outData << "Name:" << results[1].names << endl;
+    outData << "Location:" <<results[1].location << endl;
+    outData<< "Residents: " << results[1].residents << endl;
+    outData << "History: "<< results[1].history << endl<<endl;
+     outData << "The water level is " << liquid.findWaterlevel() << endl;
+     outData << "The pipes are at " << integrity.findDamage() << endl;
      if (liquid.findWaterlevel() && integrity.findDamage() <= 5)
     {
       cout << "Time to stock up on water bottles and boil the water until further notice!" << endl;
+      outData << "Time to stock up on water bottles and boil the water until further notice!" << endl;
     }
     else
     {
       cout << "Normal as it should be!" << endl;
+      outData << "Normal as it should be!" << endl;
     }
       cout << "Would you like to run the program again? \n Press y to run program again or any key to end.";
 		cin >> response;
@@ -131,13 +155,23 @@ int main()
     cout << "History:"<<results[2].history << endl<<endl;
      cout << "The water level is " << liquid.findWaterlevel() << endl;
      cout << "The pipes are at " << integrity.findDamage() << endl;
+     
+
+       outData << "Names:"<<results[2].names << endl;
+    outData << "Location:"<<results[2].location << endl;
+    outData << "Residents:"<<results[2].residents << endl;
+    outData << "History:"<<results[2].history << endl<<endl;
+     outData << "The water level is " << liquid.findWaterlevel() << endl;
+     outData << "The pipes are at " << integrity.findDamage() << endl;
      if (liquid.findWaterlevel() && integrity.findDamage() <= 5)
     {
       cout << "Time to stock up on water bottles and boil the water until further notice!" << endl;
+      outData << "Time to stock up on water bottles and boil the water until further notice!" << endl;
     }
     else
     {
       cout << "Normal as it should be!" << endl;
+      outData << "Normal as it should be!" << endl;
     }
       cout << "Would you like to run the program again? \n Press y to run program again or any key to end.";
 		cin >> response;
@@ -152,13 +186,23 @@ int main()
     cout << "History:" << results[3].history << endl << endl;
      cout << "The water level is " << liquid.findWaterlevel() << endl;
      cout << "The pipes are at " << integrity.findDamage() << endl;
+      
+
+      outData << "Names:"<< results[3].names << endl;
+   outData << "Location:"<<results[3].location << endl;
+    outData << "Residents:"<< results[3].residents << endl;
+    outData << "History:" << results[3].history << endl << endl;
+    outData<< "The water level is " << liquid.findWaterlevel() << endl;
+     outData << "The pipes are at " << integrity.findDamage() << endl;
      if (liquid.findWaterlevel() && integrity.findDamage() <= 5)
     {
       cout << "Time to stock up on water bottles and boil the water until further notice!" << endl;
+      outData << "Time to stock up on water bottles and boil the water until further notice!" << endl;
     }
     else
     {
       cout << "Normal as it should be. For now." << endl;
+      outData << "Normal as it should be. For now." << endl;
     }
       cout << "Would you like to run the program again? \n Press y to run program again or any key to end.";
 		cin >> response;
@@ -167,7 +211,11 @@ int main()
 
   cout << "Would you like to run the entire program again? \n Press y to run the entire program or any key to end: ";
 	cin >> again;
+    
+	outData.close();
 	}while (again == 'y'); //End do...while loop for ENTIRE program 
+
+  
   return 0;
 }
 float Water_pressure::findWaterlevel()
@@ -189,4 +237,3 @@ double pipes::findDamage()
         (10 - 1 + 1)) +
         1;
 };
-
