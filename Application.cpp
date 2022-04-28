@@ -10,7 +10,7 @@ class Water_pressure
   int weather;
   public:
  
-  float findWaterlevel(); 
+  float trackWaterlevel(); 
   
  
   //float getwaterLevel(int, int, int, int);
@@ -29,8 +29,8 @@ class pipes
   
   public:
   double getdamage();
-  double findDamage();
-  double findWeather();
+  double trackDamage();
+  double trackWeather();
   
 };
 
@@ -92,16 +92,16 @@ int main()
     cout << "Location:"<<results[0].location << endl;
     cout << "Residents: "<<results[0].residents << endl;
     cout << "History:"<< results[0].history << endl << endl;
-    cout << "The water level is " << liquid.findWaterlevel() << endl;
-    cout << "The pipes are at " << integrity.findDamage() << endl;
+    cout << "The water level is " << liquid.trackWaterlevel() << endl;
+    cout << "The pipes are at " << integrity.trackDamage() << endl;
 
        outData << "Names:"<<results[0].names << endl;
     outData << "Location:"<<results[0].location << endl;
     outData << "Residents: "<<results[0].residents << endl;
     outData << "History:"<< results[0].history << endl << endl;
-    outData << "The water level is " << liquid.findWaterlevel() << endl;
-    outData << "The pipes are at " << integrity.findDamage() << endl;
-    if (liquid.findWaterlevel() && integrity.findDamage() <= 5)
+    outData << "The water level is " << liquid.trackWaterlevel() << endl;
+    outData << "The pipes are at " << integrity.trackDamage() << endl;
+    if (liquid.trackWaterlevel() && integrity.trackDamage() <= 5)
     {
       cout << "Time to stock up on water bottles and boil the water until further notice!" << endl;
       outData << "Time to stock up on water bottles and boil the water until further notice!" << endl;
@@ -123,16 +123,16 @@ int main()
     cout << "Location:" <<results[1].location << endl;
     cout << "Residents: " << results[1].residents << endl;
     cout << "History: "<< results[1].history << endl<<endl;
-     cout << "The water level is " << liquid.findWaterlevel() << endl;
-     cout << "The pipes are at " << integrity.findDamage() << endl;
+     cout << "The water level is " << liquid.trackWaterlevel() << endl;
+     cout << "The pipes are at " << integrity.trackDamage() << endl;
 
        outData << "Name:" << results[1].names << endl;
     outData << "Location:" <<results[1].location << endl;
     outData<< "Residents: " << results[1].residents << endl;
     outData << "History: "<< results[1].history << endl<<endl;
-     outData << "The water level is " << liquid.findWaterlevel() << endl;
-     outData << "The pipes are at " << integrity.findDamage() << endl;
-     if (liquid.findWaterlevel() && integrity.findDamage() <= 5)
+     outData << "The water level is " << liquid.trackWaterlevel() << endl;
+     outData << "The pipes are at " << integrity.trackDamage() << endl;
+     if (liquid.trackWaterlevel() && integrity.trackDamage() <= 5)
     {
       cout << "Time to stock up on water bottles and boil the water until further notice!" << endl;
       outData << "Time to stock up on water bottles and boil the water until further notice!" << endl;
@@ -153,17 +153,17 @@ int main()
     cout << "Location:"<<results[2].location << endl;
     cout << "Residents:"<<results[2].residents << endl;
     cout << "History:"<<results[2].history << endl<<endl;
-     cout << "The water level is " << liquid.findWaterlevel() << endl;
-     cout << "The pipes are at " << integrity.findDamage() << endl;
+     cout << "The water level is " << liquid.trackWaterlevel() << endl;
+     cout << "The pipes are at " << integrity.trackDamage() << endl;
      
 
        outData << "Names:"<<results[2].names << endl;
     outData << "Location:"<<results[2].location << endl;
     outData << "Residents:"<<results[2].residents << endl;
     outData << "History:"<<results[2].history << endl<<endl;
-     outData << "The water level is " << liquid.findWaterlevel() << endl;
-     outData << "The pipes are at " << integrity.findDamage() << endl;
-     if (liquid.findWaterlevel() && integrity.findDamage() <= 5)
+     outData << "The water level is " << liquid.trackWaterlevel() << endl;
+     outData << "The pipes are at " << integrity.trackDamage() << endl;
+     if (liquid.trackWaterlevel() && integrity.trackDamage() <= 5)
     {
       cout << "Time to stock up on water bottles and boil the water until further notice!" << endl;
       outData << "Time to stock up on water bottles and boil the water until further notice!" << endl;
@@ -184,17 +184,17 @@ int main()
     cout << "Location:"<<results[3].location << endl;
     cout << "Residents:"<< results[3].residents << endl;
     cout << "History:" << results[3].history << endl << endl;
-     cout << "The water level is " << liquid.findWaterlevel() << endl;
-     cout << "The pipes are at " << integrity.findDamage() << endl;
+     cout << "The water level is " << liquid.trackWaterlevel() << endl;
+     cout << "The pipes are at " << integrity.trackDamage() << endl;
       
 
       outData << "Names:"<< results[3].names << endl;
    outData << "Location:"<<results[3].location << endl;
     outData << "Residents:"<< results[3].residents << endl;
     outData << "History:" << results[3].history << endl << endl;
-    outData<< "The water level is " << liquid.findWaterlevel() << endl;
-     outData << "The pipes are at " << integrity.findDamage() << endl;
-     if (liquid.findWaterlevel() && integrity.findDamage() <= 5)
+    outData<< "The water level is " << liquid.trackWaterlevel() << endl;
+     outData << "The pipes are at " << integrity.trackDamage() << endl;
+     if (liquid.trackWaterlevel() && integrity.trackDamage() <= 5)
     {
       cout << "Time to stock up on water bottles and boil the water until further notice!" << endl;
       outData << "Time to stock up on water bottles and boil the water until further notice!" << endl;
@@ -218,7 +218,7 @@ int main()
   
   return 0;
 }
-float Water_pressure::findWaterlevel()
+float Water_pressure::trackWaterlevel()
   {
     unsigned seed = time(0);
     srand(seed);
@@ -228,7 +228,7 @@ float Water_pressure::findWaterlevel()
         1;
   };
 
-double pipes::findDamage()
+double pipes::trackDamage()
 {
   unsigned seed = time(0);
     srand(seed);
